@@ -48,7 +48,7 @@ ARG NUXT_PUBLIC_FEATURES_BLOG=true
 USER node
 RUN ["pnpm", "run", "generate"]
 
-FROM nginx:1.31.8-alpine3.24-slim AS production
+FROM nginx:1.31.9-alpine3.24-slim AS production
 COPY --from=build /home/node/app/.output/public /usr/share/nginx/html
 LABEL org.opencontainers.image.title="r4.do" \
       org.opencontainers.image.description="Ricardo Balk's personal website served by Nginx" \
